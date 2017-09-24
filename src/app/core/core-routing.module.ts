@@ -8,7 +8,7 @@ const routes: Routes = [
     },
     {
         path: 'company',
-        loadChildren: '../company/company.module#CompanyModule'
+        loadChildren: './../company/company.module#CompanyModule'
     }
 ];
 
