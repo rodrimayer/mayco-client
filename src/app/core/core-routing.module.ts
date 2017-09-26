@@ -9,6 +9,14 @@ const routes: Routes = [
     {
         path: 'company',
         loadChildren: './../company/company.module#CompanyModule'
+    },
+    {
+        path: 'projects',
+        loadChildren: './../projects/projects.module#ProjectsModule'
+    },
+    {
+        path: 'admin',
+        loadChildren: './../admin/admin.module#AdminModule'
     }
 ];
 
