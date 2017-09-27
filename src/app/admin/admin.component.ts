@@ -9,6 +9,10 @@ import { ProjectService } from '../projects/_service/project.service';
 })
 export class AdminComponent implements OnInit {
 
+  projects: Project[] = [];
+
+  isLoading$ = false;
+
   private project_aux: Project = { name: '' };
 
   private base64textString = '';
@@ -38,25 +42,31 @@ export class AdminComponent implements OnInit {
     this.base64textString = btoa(binaryString);
     console.log(btoa(binaryString));
   }
-  // -------------------------------------------------- !
+  // -----------------PROJECTS--------------------------------- !
+  // Estos metodos los podriamos tener en un servicio aparte.
 
-
-  upload(): void {
+  uploadProject(): void {
     this.project_aux.imageEncoded = this.base64textString;
     // Subir imagen
     // this._projectService.
 
     if (this.base64textString !== '' && this.project_aux.name !== '') {
       this._projectService.insert(this.project_aux).subscribe(data => {
+
+        if (data.status === 201) {
+          alert('Proyecto cargado correctamente');
+          console.log('project_aux');
+          console.log(this.project_aux);
+
+          // clean
+          this.project_aux = { name: '', imageEncoded: null, imageDecoded: null };
+          this.base64textString = '';
+        } else {
+          alert('El proyecto no pudo ser cargado -- http code ${data.status}');
+        }
+
       });
 
-      console.log('project_aux');
-      console.log(this.project_aux);
-
-      // clean obj.
-      this.project_aux = { name: '', imageEncoded: null, imageDecoded: null };
-
-      this.base64textString = '';
 
 
     } else {
@@ -64,4 +74,24 @@ export class AdminComponent implements OnInit {
     }
 
   }
+
+  listProjects(): void {
+    this.isLoading$ = true ;
+        this._projectService.listData().subscribe(
+         data => {
+            this.projects = data;
+            this.isLoading$ = false;
+          }
+        );
+
+  }
+
+  deleteProject(id: number): void {
+
+  }
+
+  // -----------------SERVICES--------------------------------- !
+  // Estos metodos los podriamos tener en un servicio aparte.
+
 }
+
