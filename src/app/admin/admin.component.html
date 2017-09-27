@@ -1,29 +1,27 @@
-<!-- Page Heading -->
-<h1 class="my-4">Administrar Proyectos</h1>
-
-<br>
-
-<label>Ingresar nombre de proyecto</label> <input type="text">
-
-<br>
-<br>
-
-<div>
-  <div>
-    <label for="filePicker">Elegir o arrastrar imagen del proyecto:</label>
-    <input type="file">
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="my-4">Administrar Proyectos</h1>
   </div>
 </div>
 
-<br>  
+<div class="row">
+  <div class="col-md-6">
+    <input type="text" class="form-control" placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
+  </div>
+</div>
 
-<button class="btn btn-primary">Publicar proyecto</button>
+<br>
+
+<div class="form-group">
+  <label for="exampleInputFile">Eleegir imagen de proyecto</label>
+  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+    (change)="handleFileSelect($event)">
+</div>
+
+
+<button class="btn btn-primary" (click)="upload()">Publicar proyecto</button>
 
 <br>
 <br>
 
 <h3>Proyectos publicados</h3>
-
-<table>
-  <!--eliinar proyecto desde tabla --> 
-</table>
