@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
 
     this.isLoading$ = true ;
 
-    this._projectService.listData().subscribe(
+    this._projectService.list().subscribe(
 
       data => {
         this.projects = data;

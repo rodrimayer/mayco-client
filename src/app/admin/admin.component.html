@@ -17,7 +17,7 @@
 
   <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
     (change)="handleFileSelect($event)" #aa>
-  
+
 
 </div>
 
@@ -48,18 +48,22 @@
 <br>
 
 <div class="container main-container">
-  <div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let project of projects; ">
-      <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
 
-      <div class="card-block">
-        <hr>
-        <h4 class="card-title text-center">{{ project.name }}</h4>
-        <p class="card-text text-center">{{project.id }}</p>
-        <p class="card-text"><small class="text-muted"><!--description--></small></p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card animated fadeIn fast" *ngFor="let project of projects; let i = index ">
+        <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
 
-        <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
-        <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(project.id)">Eliminar</button>
+        <div class="card-block">
+          <hr>
+          <h4 class="card-title text-center">{{ project.name }}</h4>
+          <p class="card-text text-center">{{project.id }}</p>
+          <p class="card-text"><small class="text-muted"><!--description--></small></p>
+
+          <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
+          <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(i)">Eliminar</button>
+        </div>
       </div>
     </div>
+
   </div>
