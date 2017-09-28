@@ -11,7 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
-  declarations: [],
+
   imports: [
     BrowserModule,
     CoreModule,
