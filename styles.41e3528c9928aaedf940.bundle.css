@@ -1,8 +1,8 @@
-/*!
+footer{position:fixed;bottom:0;width:100%}#base64image{width:100%;height:100%}#main-content{margin-bottom:200px}.animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.fast{-webkit-animation-duration:.4s;animation-duration:.4s;-webkit-animation-fill-mode:both;animation-fill-mode:both}@-webkit-keyframes fadeIn{0%{opacity:0}to{opacity:1}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.fadeIn{-webkit-animation-name:fadeIn;animation-name:fadeIn}/*!
  * Start Bootstrap - Portfolio Item (https://startbootstrap.com/template-overviews/portfolio-item)
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-portfolio-item/blob/master/LICENSE)
- */body{padding-top:54px}@media (min-width:992px){body{padding-top:56px}}/*!
+ */body{padding-top:54px}@media (min-width:992px){body{padding-top:56px}}.pagination{margin-bottom:15px}/*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
