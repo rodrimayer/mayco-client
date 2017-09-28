@@ -13,9 +13,9 @@ export class AdminComponent implements OnInit {
 
   isLoading$ = false;
 
-  private project_aux: Project = { name: '' };
+  project_aux: Project = { name: '' };
 
-  private base64textString = '';
+  base64textString = '';
 
 
   constructor(private _projectService: ProjectService) { }
