@@ -21,6 +21,7 @@
       "styles": [
         "styles.css",
         "portfolio-item.css",
+        "1-col-portfolio.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
