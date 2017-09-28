@@ -14,8 +14,11 @@
 
 <div class="form-group">
   <label for="exampleInputFile">Eleegir imagen de proyecto</label>
-  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
-    (change)="handleFileSelect($event)">
+
+  <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+    (change)="handleFileSelect($event)" #aa>
+  
+
 </div>
 
 
@@ -38,16 +41,25 @@
 </ng-template>
 
 
-<div class="card-columns">
-  <div class="card animated fadeIn fast" *ngFor="let project of projects; ">
-    <img class="img-fluid rounded mb-3 mb-md-0" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
-    <!--img class="card-img-top img-fluid" src="{{heroe.img}}" alt="Card image cap"-->
-    <div class="card-block">
-      <h4 class="card-title">{{ project.name }}</h4>
-      <p class="card-text">{{project.id }}</p>
-      <p class="card-text"><small class="text-muted">...</small></p>
+<br>
 
-      <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
-      <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(project.id)">Eliminar</button>
+<br>
+
+<br>
+
+<div class="container main-container">
+  <div class="card-columns">
+    <div class="card animated fadeIn fast" *ngFor="let project of projects; ">
+      <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
+
+      <div class="card-block">
+        <hr>
+        <h4 class="card-title text-center">{{ project.name }}</h4>
+        <p class="card-text text-center">{{project.id }}</p>
+        <p class="card-text"><small class="text-muted"><!--description--></small></p>
+
+        <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
+        <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(project.id)">Eliminar</button>
+      </div>
     </div>
   </div>
