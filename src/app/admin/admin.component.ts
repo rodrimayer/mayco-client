@@ -28,11 +28,11 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
-  evt1=null;
+  evt1 = null;
 
   // ----- ChooseFile and convert to base64 ------
   handleFileSelect(evt) {
-    
+
     console.log();
 
     const files = evt.target.files;
@@ -46,7 +46,7 @@ export class AdminComponent implements OnInit {
       reader.readAsBinaryString(file);
     }
 
-    this.evt1=evt;
+    this.evt1 = evt;
   }
   _handleReaderLoaded(readerEvt) {
     const binaryString = readerEvt.target.result;
@@ -57,10 +57,10 @@ export class AdminComponent implements OnInit {
   // Estos metodos los podriamos tener en un servicio aparte.
 
   uploadProject(): void {
-    
 
 
-    
+
+
     this.project_aux.imageEncoded = this.base64textString;
     // Subir imagen
     // this._projectService.
@@ -77,7 +77,7 @@ export class AdminComponent implements OnInit {
           this.project_aux = { name: '', imageEncoded: null, imageDecoded: null };
           this.base64textString = '';
 
-          this.evt1.srcElement.value='';
+          this.evt1.srcElement.value = '';
 
 
         } else {
@@ -96,7 +96,7 @@ export class AdminComponent implements OnInit {
 
   listProjects(): void {
     this.isLoading$ = true;
-    this._projectService.listData().subscribe(
+    this._projectService.list().subscribe(
       data => {
         this.projects = data;
         this.isLoading$ = false;
@@ -105,8 +105,17 @@ export class AdminComponent implements OnInit {
 
   }
 
-  deleteProject(id: number): void {
+  deleteProject(index: number): void {
+    this._projectService.delete(this.projects[index]).subscribe(data => {
+      if (data.status === 200) {
+        alert('Proyecto eliminado correctamente');
+        this.projects.splice(index, 1);
+      } else {
+        alert('El proyecto no pudo ser eliminado');
+      }
 
+
+    });
   }
 
   // -----------------SERVICES--------------------------------- !

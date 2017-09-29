@@ -39,7 +39,7 @@ export class RestClientService {
 
             case this.DELETE:
                 console.log('DELETE');
-                return this._http.delete(`${url}/${aObject.getId}`, options);
+                return this._http.delete(`${url}/${aObject.id}`, options);
         }
     }
 }
