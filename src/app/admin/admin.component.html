@@ -4,25 +4,25 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <input type="text" class="form-control" placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
-  </div>
-</div>
+
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
 
 <br>
 
-<div class="form-group">
-  <label for="exampleInputFile">Eleegir imagen de proyecto</label>
+<label for="exampleInputFile">Eleegir imagen de proyecto</label>
 
-  <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
-    (change)="handleFileSelect($event)" #aa>
+<input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+  (change)="handleFileSelect($event)" #aa>
 
+<br>
 
-</div>
+<textarea class="form-control" placeholder="Breve descripcion del proyecto (maximo 255 caracteres)" [ngModel]='project_aux.description' (ngModelChange)='updateDescription($event)'
+  rows="10" cols="15"></textarea>
 
-
+<br>
 <button class="btn btn-primary" (click)="uploadProject()">Publicar proyecto</button>
+</div>
 
 <br>
 <br>

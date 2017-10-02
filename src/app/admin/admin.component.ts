@@ -4,31 +4,28 @@ import { Project } from '../_model/project.model';
 import { ProjectService } from '../projects/_service/project.service';
 
 
-
-
 @Component({
   selector: 'nr-admin',
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
 
-  inputFile: string = '';
+  inputFile = '';
 
   projects: Project[] = [];
 
   isLoading$ = false;
 
-  project_aux: Project = { name: '' };
+  project_aux: Project = { name: '', description: '' };
 
   base64textString = '';
 
+  evt1 = null;
 
   constructor(private _projectService: ProjectService) { }
 
   ngOnInit() {
   }
-
-  evt1 = null;
 
   // ----- ChooseFile and convert to base64 ------
   handleFileSelect(evt) {
@@ -56,10 +53,8 @@ export class AdminComponent implements OnInit {
   // -----------------PROJECTS--------------------------------- !
   // Estos metodos los podriamos tener en un servicio aparte.
 
+
   uploadProject(): void {
-
-
-
 
     this.project_aux.imageEncoded = this.base64textString;
     // Subir imagen
@@ -74,7 +69,7 @@ export class AdminComponent implements OnInit {
           console.log(this.project_aux);
 
           // clean
-          this.project_aux = { name: '', imageEncoded: null, imageDecoded: null };
+          this.project_aux = { name: '', description: '', imageEncoded: null, imageDecoded: null };
           this.base64textString = '';
 
           this.evt1.srcElement.value = '';
@@ -118,9 +113,18 @@ export class AdminComponent implements OnInit {
     });
   }
 
+
+  updateDescription(description: string): void {
+    if (description.length > 254) {
+      this.project_aux.description = description.substring(0, 251) + '...';
+    } else {
+      this.project_aux.description = description;
+    }
+
+  }
+  
   // -----------------SERVICES--------------------------------- !
   // Estos metodos los podriamos tener en un servicio aparte.
-
 
 }
 
