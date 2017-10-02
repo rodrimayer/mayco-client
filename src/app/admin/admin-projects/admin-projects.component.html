@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-6">
+      <h1 class="my-4">Administrar Proyectos</h1>
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
+  
+  <br>
+  
+  <label for="exampleInputFile">Eleegir imagen de proyecto</label>
+  
+  <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+    (change)="handleFileSelect($event)" #aa>
+  
+  <br>
+  
+  <textarea class="form-control" placeholder="Breve descripcion del proyecto (maximo 255 caracteres)" [ngModel]='project_aux.description' (ngModelChange)='updateDescription($event)'
+    rows="10" cols="15"></textarea>
+  
+  <br>
+  <button class="btn btn-primary" (click)="uploadProject()">Publicar proyecto</button>
+  </div>
+  
+  <br>
+  <br>
+  
+  <h3>Proyectos publicados</h3>
+  
+  <button class="btn btn-success" (click)="listProjects()">Listar proyectos</button>
+  
+  
+  <div *ngIf="isLoading$; then ifcondition"> ... </div>
+  
+  <ng-template #ifcondition>
+    <div>
+      <h4>Cargando proyectos ...</h4>
+    </div>
+  </ng-template>
+  
+  
+  <br>
+  
+  <br>
+  
+  <br>
+  
+  <div class="container main-container">
+  
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card animated fadeIn fast" *ngFor="let project of projects; let i = index ">
+          <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
+  
+          <div class="card-block">
+            <hr>
+            <h4 class="card-title text-center">{{ project.name }}</h4>
+            <p class="card-text text-center">{{project.id }}</p>
+            <p class="card-text"><small class="text-muted"><!--description--></small></p>
+  
+            <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
+            <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(i)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
