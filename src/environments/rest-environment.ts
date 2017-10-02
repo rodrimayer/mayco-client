@@ -8,12 +8,11 @@ export const SERVER = {
 
 export const URL_BASE = SERVER.ADDRESS + SERVER.PORT ;
 
-export const URL_LIST = '/project/list';
+export const URL_PROJECT_LIST = '/project/list';
 
-export const URL_ADD = '/project/add';
+export const URL_PROJECT_ADD = '/project/add';
 
-export const URL_DELETE = '/project/delete';
-
+export const URL_PROJECT_DELETE = '/project/delete';
 
 export const URL_SKILL_LIST = '/skill/list';
 

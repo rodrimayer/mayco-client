@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 
 import { Project } from '../../_model/project.model';
 import { RestClientService } from '../../_service/rest-client.service';
-import { SERVER, URL_ADD, URL_BASE, URL_LIST, URL_DELETE } from '../../../environments/rest-environment';
+import { SERVER, URL_PROJECT_ADD, URL_BASE, URL_PROJECT_LIST, URL_PROJECT_DELETE } from '../../../environments/rest-environment';
 
 @Injectable()
 export class ProjectService {
@@ -15,7 +15,7 @@ export class ProjectService {
     constructor(private _restClientService: RestClientService) { }
 
     public list(): Observable<Project[]> {
-        const obs: Observable<Response> = this._restClientService.list(URL_BASE, URL_LIST);
+        const obs: Observable<Response> = this._restClientService.list(URL_BASE, URL_PROJECT_LIST);
         obs.subscribe(rs => console.log(rs));
         return obs.map((res: Response) => <Project[]>res.json())
             .do(data => console.log('data' + JSON.stringify(data)));
@@ -25,7 +25,7 @@ export class ProjectService {
     insert(project: Project): Observable<Response> {
         return this._restClientService.insert(
             project,
-            URL_BASE, URL_ADD
+            URL_BASE, URL_PROJECT_ADD
         );
     }
 
@@ -33,7 +33,7 @@ export class ProjectService {
     delete(project: Project): Observable<Response> {
         return this._restClientService.delete(
             project,
-            URL_BASE, URL_DELETE,
+            URL_BASE, URL_PROJECT_DELETE,
             // ).map( (res: Response) => res.text() );
         );
     }
