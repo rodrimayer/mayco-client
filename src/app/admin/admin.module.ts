@@ -7,6 +7,10 @@ import { RestClientService } from '../_service/rest-client.service';
 import { ProjectService } from '../projects/_service/project.service';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
+import { AdminSkillsComponent } from './admin-skills/admin-skills.component';
+import { AdminProjectsComponent } from './admin-projects/admin-projects.component';
+
+import { SkillService } from '../skills/_service/skill.service';
 
 @NgModule({
   imports: [
@@ -15,7 +19,7 @@ import { AdminComponent } from './admin.component';
     HttpModule,
     FormsModule
   ],
-  declarations: [AdminComponent],
-  providers: [ProjectService, RestClientService]
+  declarations: [AdminComponent, AdminSkillsComponent, AdminProjectsComponent],
+  providers: [ProjectService, SkillService, RestClientService]
 })
 export class AdminModule { }
