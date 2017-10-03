@@ -20,3 +20,4 @@ export const URL_SKILL_ADD = '/skill/add';
 
 export const URL_SKILL_DELETE = '/skill/delete';
 
+export const URL_MAIL_SEND = '/mail/send';
