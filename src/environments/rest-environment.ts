@@ -1,8 +1,8 @@
 export const SERVER = {
-     ADDRESS : 'http://localhost',
-      PORT : ':8080'
-    //ADDRESS: 'https://mayco-backend.herokuapp.com',
-    //PORT : ''
+     //ADDRESS : 'http://localhost',
+     //PORT : ':8080'
+    ADDRESS: 'https://mayco-backend.herokuapp.com',
+    PORT : ''
 };
 
 
