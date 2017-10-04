@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  PATH_LOGO = 'assets/logo.png';
   constructor() { }
 
   ngOnInit() {

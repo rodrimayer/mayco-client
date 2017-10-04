@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     {
         path: 'contact',
-        loadChildren: '../contact/contact.module#ContactModule'
+        loadChildren: './../contact/contact.module#ContactModule'
     }
 ];
 
