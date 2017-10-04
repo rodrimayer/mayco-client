@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: './../projects/projects.module#ProjectsModule'
     },
     {
+        path: 'skills',
+        loadChildren: './../skills/skills.module#SkillsModule'
+    },
+    {
         path: 'admin',
         loadChildren: './../admin/admin.module#AdminModule'        
     },
