@@ -1,6 +1,7 @@
-import { MailService } from './_service/mail.service';
 import { Component, OnInit } from '@angular/core';
-import { Mail } from '../_model/mail.model';
+
+import { MailService } from './_service/mail.service';
+import { Mail } from '../../_model/mail.model';
 
 @Component({
   selector: 'nr-mail',
