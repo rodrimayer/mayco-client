@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  PATH_LOGO = 'assets/logo.png';
+  //PATH_LOGO = 'assets/logo.png';
+
+  title: string = 'GOOGLE MAPS OF MA&CO';
+  lat: number = -23.8133193;
+  lng: number = -64.7936981;
+  zoom: number = 16;
   constructor() { }
+
 
   ngOnInit() {
   }
