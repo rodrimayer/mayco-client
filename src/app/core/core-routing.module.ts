@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        loadChildren: './../admin/admin.module#AdminModule'        
+        loadChildren: './../admin/admin.module#AdminModule'
     },
     {
         path: 'contact',

@@ -37,26 +37,25 @@
 <br>
 
 <br>
-
 <br>
 
-<div class="container main-container">
 
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card animated fadeIn fast" *ngFor="let skill of skills; let i = index ">
-        <img class="card-img-top img-fluid" id='base64image' src="assets/logo_sin_fondo.png">
 
-        <div class="card-block">
-          <hr>
-          <h4 class="card-title text-center">{{ skill.name }}</h4>
-          <p class="card-text text-center">{{skill.id }}</p>
-          <p class="card-text"><small class="text-muted"><!--description--></small></p>
+<div class="card-columns">
 
-          <!--a   [routerLink]="['/heroe',i]"  class="btn btn-outline-primary"> ver mas (link) ...</a-->
-          <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteSkill(i)">Eliminar</button>
-        </div>
+  <!--div class="col-md-4 col-xs-12" -->
+  <div class="card text-white animated fadeIn" *ngFor="let skill of skills ; let i = index" style="width: 20rem;background-color:#212529;;margin:10px">
+    <div class="card-body">
+      <div class="card-body text-center">
+        <h2 class="card-title">{{skill.name}}</h2>
+        <p class="card-text">{{skill.description}}</p>
+        <p class="card-text"><small class="text-muted">{{skill.id }}</small></p>
+        <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteSkill(i)">Eliminar</button>
       </div>
+      <hr>
     </div>
-
   </div>
+  <!--/div-->
+</div>
+
+ 
