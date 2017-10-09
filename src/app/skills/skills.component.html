@@ -1,5 +1,5 @@
 <div class="row container">
-    <h1 class="my-4">Servicios</h1>
+    <h1 class="my-4">Nuestros servicios</h1>
 </div>
 
 <div class="row container">
@@ -12,29 +12,34 @@
         </div>
     </ng-template>
     <ng-template #elsecondition>
-        <br><br>
+        <div *ngIf="skills.length>0; then ifcondition else elsecondition">...</div>
 
-  <div *ngIf="skills.length>0; then ifcondition else elsecondition">...</div>
-  
-  <ng-template #ifcondition>
-        <div class="col-md-4 col-xs-12 animated fadeIn" *ngFor="let skill of skills">
-            <div class="card" style="width: 20rem;margin:15px;">
-                <img class="card-img-top" src="assets/logo_sin_fondo.png" alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">{{skill.name}}</h4>
-                    <p class="card-text">{{skill.description}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <ng-template #ifcondition>
+
+            <div class="card-columns">
+
+                <!--div class="col-md-4 col-xs-12" -->
+                <div class="card text-white animated fadeIn" *ngFor="let skill of skills" style="width: 20rem;background-color:#212529;;margin:10px">
+                    <div class="card-body">
+                        <div class="card-block text-center">
+                            <h2 class="card-title">{{skill.name}}</h2>
+                            <p class="card-text">{{skill.description}}</p>
+                            <p class="card-text"><small class="text-muted">Ma&co</small></p>
+                        </div>
+                        <hr>
+                    </div>
                 </div>
+                <!--/div-->
             </div>
-        </div>
-  </ng-template>
+
+        </ng-template>
 
 
-  <ng-template #elsecondition>
-        <div class="alert alert-danger" role="alert">
-          <strong>Atención: </strong>No se encontraron servicios publicados.
-        </div>
-      </ng-template>
+        <ng-template #elsecondition>
+            <div class="alert alert-danger" role="alert">
+                <strong>Atención: </strong>No se encontraron servicios publicados.
+            </div>
+        </ng-template>
 
 
     </ng-template>
