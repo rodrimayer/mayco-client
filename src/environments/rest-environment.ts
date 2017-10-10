@@ -1,6 +1,6 @@
 export const SERVER = {
-     //ADDRESS : 'http://localhost',
-     //PORT : ':8080'
+    //ADDRESS : 'http://localhost',
+    //PORT : ':8080'
     ADDRESS: 'https://mayco-backend.herokuapp.com',
     PORT : ''
 };
@@ -19,5 +19,11 @@ export const URL_SKILL_LIST = '/skill/list';
 export const URL_SKILL_ADD = '/skill/add';
 
 export const URL_SKILL_DELETE = '/skill/delete';
+
+export const URL_USER_LIST = '/user/list';
+
+export const URL_USER_ADD = '/user/add';
+
+export const URL_USER_DELETE = '/user/delete';
 
 export const URL_MAIL_SEND = '/mail/send';
