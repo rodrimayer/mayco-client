@@ -25,6 +25,10 @@ const routes: Routes = [
     {
         path: 'contact',
         loadChildren: './../contact/contact.module#ContactModule'
+    },
+    {
+        path: 'users',
+        loadChildren: './../users/users.module#UsersModule'
     }
 ];
 
