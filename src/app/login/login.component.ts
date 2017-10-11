@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   constructor(private _usersService: UsersService, private _authService: AuthService) { }
 
   ngOnInit() {
-    console.log(sessionStorage.getItem('user'));
+    console.log('user_session : ' + sessionStorage.getItem('user'));
 
     const user_session: User = JSON.parse(sessionStorage.getItem('user'));
     if (user_session != null) {

@@ -7,6 +7,7 @@ import { HeaderComponent } from './shell/header/header.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { AuthService } from '../_service/auth.service';
+import { SimpleAuthGuard } from '../_guard/index';
 
 @NgModule({
   imports: [
@@ -20,6 +21,9 @@ import { AuthService } from '../_service/auth.service';
     FooterComponent
   ],
   exports: [ShellComponent],
-  providers: []
+  providers: [
+    SimpleAuthGuard,
+    AuthService
+  ]
 })
 export class CoreModule { }
