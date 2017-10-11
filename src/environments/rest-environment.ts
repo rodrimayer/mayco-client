@@ -26,4 +26,6 @@ export const URL_USER_ADD = '/user/add';
 
 export const URL_USER_DELETE = '/user/delete';
 
+export const URL_USER_LOGIN = '/user/login';
+
 export const URL_MAIL_SEND = '/mail/send';

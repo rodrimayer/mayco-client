@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 
 import { User } from '../../_model/user.model';
 import { RestClientService } from '../../_service/rest-client.service';
-import { URL_USER_LIST, URL_BASE, URL_USER_ADD, URL_USER_DELETE } from '../../../environments/rest-environment';
+import { URL_USER_LIST, URL_BASE, URL_USER_ADD, URL_USER_DELETE , URL_USER_LOGIN} from '../../../environments/rest-environment';
 
 
 @Injectable()
@@ -38,6 +38,13 @@ export class UsersService {
       URL_BASE, URL_USER_DELETE,
       // ).map( (res: Response) => res.text() );
     );
+  }
+
+  login(user: User): Observable<TSMap<string, User>> {
+    return this._restClientService.insert(
+      user,
+      URL_BASE, URL_USER_LOGIN
+        ).map( (res: Response) => <TSMap<string, User>>new TSMap().fromJSON(res.json()));
   }
 
 }
