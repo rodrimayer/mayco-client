@@ -30,12 +30,12 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['contact']">Contacto</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active"  [hidden]='!isLoggedIn()'>
           <a class="nav-link" [routerLink]="['admin']">Admin</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" [hidden]='!isLoggedIn()'>
           <a class="nav-link" [routerLink]="['users']">Usuarios</a>
-        </li>
+        </li> 
       </ul>
     </div>
   </div>
