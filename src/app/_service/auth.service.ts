@@ -9,7 +9,8 @@ export class AuthService {
   constructor() { }
 
   public isLoggedIn(): Boolean {
-    return localStorage.getItem('user') != null;
+    console.log(sessionStorage.getItem('user'));
+    return sessionStorage.getItem('user') != null;
   }
 
   login(user: User): void {
@@ -25,7 +26,7 @@ export class AuthService {
 
   logout(): void {
     AuthService.isLoggedIn_aux = false;
-    sessionStorage.setItem('user', null);
+    sessionStorage.clear();
   }
 
 }
