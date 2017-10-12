@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../_service/auth.service';
 
 @Component({
   selector: 'nr-header',
@@ -6,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogin = false;
+
   PATH_LOGO = 'assets/logo_sin_fondo.png';
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  isLoggedIn(): boolean {
+    return AuthService.isLoggedIn_aux;
   }
 
 }

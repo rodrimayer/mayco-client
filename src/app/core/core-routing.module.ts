@@ -1,3 +1,4 @@
+import { SimpleAuthGuard } from '../_guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -19,12 +20,18 @@ const routes: Routes = [
         loadChildren: './../skills/skills.module#SkillsModule'
     },
     {
-        path: 'admin',
-        loadChildren: './../admin/admin.module#AdminModule'        
-    },
-    {
         path: 'contact',
         loadChildren: './../contact/contact.module#ContactModule'
+    },
+    {
+        path: 'admin',
+        loadChildren: './../admin/admin.module#AdminModule',
+        canActivate: [SimpleAuthGuard]
+    },
+    {
+        path: 'users',
+        loadChildren: './../users/users.module#UsersModule',
+        canActivate: [SimpleAuthGuard]
     }
 ];
 

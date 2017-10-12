@@ -26,7 +26,7 @@ export class AdminSkillsComponent implements OnInit {
 
   uploadSkill(): void {
 
-    if (this.skill_aux.name !== '') {
+    if (this.skill_aux.name !== '' && this.skill_aux.description !== '') {
       this._skillService.insert(this.skill_aux).subscribe(data => {
 
         if (data.status === 201) {
