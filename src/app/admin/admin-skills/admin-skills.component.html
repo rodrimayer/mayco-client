@@ -14,7 +14,7 @@
     (ngModelChange)='updateDescription($event)' rows="10" cols="15"></textarea>
 
   <br>
-  <button class="btn btn-primary" (click)="uploadSkill()">Publicar service</button>
+  <button class="btn btn-primary" (click)="uploadSkill()" [disabled]='publicando'>Publicar service</button>
 </div>
 
 <br>
