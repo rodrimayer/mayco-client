@@ -45,8 +45,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-block " (click)='login()'>Ingresar</button>
+        <button [disabled]='loading' class="button" class="btn btn-primary btn-block " (click)='login()'>Ingresar</button>
       </div>
+      <div class="alert alert-info" [hidden]='!loading' role="alert">
+        <strong>Iniciando...</strong>
+      </div>
+
     </div>
   </div>
 </div>

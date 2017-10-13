@@ -6,64 +6,67 @@
 
 
 <div class="form-group">
-  <input type="text" class="form-control" placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
+  <input type="text" id="name" name="name" class="form-control" 
+  placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
+   <br>
 
-  <br>
+    <label for="exampleInputFile">Eleegir imagen de proyecto</label>
 
-  <label for="exampleInputFile">Eleegir imagen de proyecto</label>
+    <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+      (change)="handleFileSelect($event)" #aa>
 
-  <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
-    (change)="handleFileSelect($event)" #aa>
+    <br>
 
-  <br>
-
-  <textarea class="form-control" placeholder="Breve descripcion del proyecto (maximo 255 caracteres)" [ngModel]='project_aux.description'
-    (ngModelChange)='updateDescription($event)' rows="10" cols="15"></textarea>
-
-  <br>
-  <button class="btn btn-primary" (click)="uploadProject()" [disabled]='publicando'>Publicar proyecto</button>
-</div>
-
-<br>
-<br>
-
-<h3>Proyectos publicados</h3>
-
-<button class="btn btn-success" (click)="listProjects()">Listar proyectos</button>
-
-
-<div *ngIf="isLoading$; then ifcondition"> ... </div>
-<ng-template #ifcondition>
-  <div>
-    <h4>Cargando proyectos ...</h4>
+    <textarea id='description' name='description' class="form-control" 
+    placeholder="Breve descripcion del proyecto (No puede escribir mas de 254 caracteres.)" 
+    [ngModel]='project_aux.description'
+    (ngModelChange)='updateDescription($event)' rows="10" cols="15"
+    #description='ngModel'
+    required maxlength="254"></textarea>
+     <br>
+    <button class="btn btn-primary" (click)="uploadProject()" [disabled]='publicando'>Publicar proyecto</button>
   </div>
-</ng-template>
+
+  <br>
+  <br>
+
+  <h3>Proyectos publicados</h3>
+
+  <button class="btn btn-success" (click)="listProjects()">Listar proyectos</button>
 
 
-<br>
-
-<br>
-
-<br>
-
-
-
+  <div *ngIf="isLoading$; then ifcondition"> ... </div>
+  <ng-template #ifcondition>
+    <div>
+      <h4>Cargando proyectos ...</h4>
+    </div>
+  </ng-template>
 
 
+  <br>
 
-<div class="card-columns">
+  <br>
 
-  <!--div class="col-md-4 col-xs-12" -->
-  <div class="card animated fadeIn" *ngFor="let project of projects; let i = index " style="width: 20rem;margin:10px">
-    <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
-    <div class="card-block">
-      <div class="card-block text-center">
-        <h2 class="card-title">{{project.name}}</h2>
-        <p class="card-text">{{project.description}}</p>
-        <p class="card-text"><small class="text-muted">{{project.id }}</small></p>
-        <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(i)">Eliminar</button>
+  <br>
+
+
+
+
+
+
+  <div class="card-columns">
+
+    <!--div class="col-md-4 col-xs-12" -->
+    <div class="card animated fadeIn" *ngFor="let project of projects; let i = index " style="width: 20rem;margin:10px">
+      <img class="card-img-top img-fluid" id='base64image' src="{{'data:image/jpeg;base64,'+project.imageEncoded}}">
+      <div class="card-block">
+        <div class="card-block text-center">
+          <h2 class="card-title">{{project.name}}</h2>
+          <p class="card-text">{{project.description}}</p>
+          <p class="card-text"><small class="text-muted">{{project.id }}</small></p>
+          <button type="button" class="btn btn-outline-danger btn-block" (click)="deleteProject(i)">Eliminar</button>
+        </div>
       </div>
     </div>
+    <!--/div-->
   </div>
-  <!--/div-->
-</div>
