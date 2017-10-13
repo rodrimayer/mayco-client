@@ -1,6 +1,6 @@
 <br>
-<div class="panel panel-default">
-  <div class="panel-body">
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
     <h2>
         Como encontrarnos
     </h2>
@@ -8,10 +8,13 @@
     <agm-map [latitude]="lat" [longitude]="lng" [zoom] = "zoom">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
+    <div class="panel-footer">Dirección: Entre Ríos 220 || Ledesma – Jujuy CP: 4512</div>
+  </div>
+  <br>
+  <br>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <h2>Envio de correo</h2>
+    <nr-mail></nr-mail>
   </div>
 </div>
 
-<br>
-<br>
-<h2>Envio de correo</h2>
-<nr-mail></nr-mail>
