@@ -15,9 +15,9 @@ declare var jQuery: any;
 export class LoginComponent implements OnInit {
 
   _isLoggedIn = false;
+
   name = '';
   welcome = 'Bienvenido ';
-
 
   user_login: User = { username: '', password: '' };
 
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   message_returned = '';
   // user_returned: User = null;
 
+  loading = false;
   constructor(private _usersService: UsersService, private _authService: AuthService) { }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-
+    this.loading = true;
     this._usersService.login(this.user_login).subscribe(
       data => {
 
@@ -69,6 +70,7 @@ export class LoginComponent implements OnInit {
         }
         this.cleanUserLogin();
 
+        this.loading = false;
         jQuery('#login-modal').modal('toggle');
       });
   }
