@@ -19,14 +19,16 @@ export class AdminSkillsComponent implements OnInit {
 
   skill_aux: Skill = { name: '', description: '' };
 
+  publicando = false ;
+
   constructor(private _skillService: SkillService) { }
 
   ngOnInit() {
   }
 
   uploadSkill(): void {
-
-    if (this.skill_aux.name !== '') {
+    this.publicando = true;
+    if (this.skill_aux.name !== '' && this.skill_aux.description !== '') {
       this._skillService.insert(this.skill_aux).subscribe(data => {
 
         if (data.status === 201) {
@@ -39,12 +41,14 @@ export class AdminSkillsComponent implements OnInit {
           alert('El servicio no pudo ser cargado -- http code ${data.status}');
         }
 
+        this.publicando = false;
       });
 
 
 
     } else {
       alert('No se ingresó nombre de servicio, revise sus datos.');
+      this.publicando = false;
     }
 
   }

@@ -21,6 +21,8 @@ export class AdminProjectsComponent implements OnInit {
 
   evt1 = null;
 
+  publicando = false ;
+
   constructor(private _projectService: ProjectService) { }
 
   ngOnInit() {
@@ -54,10 +56,11 @@ export class AdminProjectsComponent implements OnInit {
 
 
   uploadProject(): void {
-
+    
     this.project_aux.imageEncoded = this.base64textString;
     // Subir imagen
     // this._projectService.
+    this.publicando = true;
 
     if (this.base64textString !== '' && this.project_aux.name !== '') {
       this._projectService.insert(this.project_aux).subscribe(data => {
@@ -77,13 +80,14 @@ export class AdminProjectsComponent implements OnInit {
         } else {
           alert('El proyecto no pudo ser cargado -- http code ${data.status}');
         }
-
+        this.publicando = false;
       });
 
 
 
     } else {
       alert('No se ingresó nombre o imagen del proyecto, revise sus datos.');
+     this.publicando = false;
     }
 
   }
