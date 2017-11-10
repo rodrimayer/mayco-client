@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MailComponent } from './mail.component';
+import { UsersComponent } from './users.component';
 
 const routes: Routes = [
         {
             path: '',
-            component: MailComponent
+            component: UsersComponent
         }
 ];
 @NgModule({
@@ -17,4 +17,4 @@ const routes: Routes = [
         RouterModule
     ]
 })
-export class MailRoutingModule {}
+export class UsersRoutingModule {}

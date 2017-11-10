@@ -1,0 +1,52 @@
+<!-- Button trigger modal -->
+
+<a class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#login-modal" [hidden]='_isLoggedIn'>
+  Login
+</a>
+
+<a class="btn btn-outline-danger btn-block" [hidden]='!_isLoggedIn' (click)='logout()'>
+  Logout
+</a>
+
+<div class="alert alert-primary top-6" role="alert" *ngIf='_isLoggedIn'>
+  {{ welcome }} <strong> {{ name }} </strong>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Iniciar sesión</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="form_username">Nombre de usuario</label>
+              <input id="form_username" type="text" name="username" class="form-control" required="required" data-error="Firstname is required."
+                [(ngModel)]='user_login.username' #username autofocus>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="form_pass">Contraseña</label>
+              <input id="form_pass" type="password" name="password" class="form-control" required="required" data-error="Lastname is required."
+                [(ngModel)]='user_login.password' (keyup.enter)='login()' #pass>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-block " (click)='login()'>Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
