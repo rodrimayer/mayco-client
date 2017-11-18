@@ -1,11 +1,22 @@
-<h1>
-  COMO ENCONTRARNOS
-</h1>
+<br>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <h2>
+        Como encontrarnos
+    </h2>
+    <br>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom] = "zoom">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <br>
+    <div class="panel-footer">Domicilio taller: Av. Soberania esq. Presidente Peron || Ledesma – Jujuy</div>
+    <div class="panel-footer">Domicilio legal: Entre Ríos 220 || Ledesma – Jujuy</div>
+  </div>
+  <br>
+  <br>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <h2>Envio de correo</h2>
+    <nr-mail></nr-mail>
+  </div>
+</div>
 
-<agm-map [latitude]="lat" [longitude]="lng" [zoom] = "zoom">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
-<br>
-<br>
-<h1>Envio de correo</h1>
-<nr-mail></nr-mail>
