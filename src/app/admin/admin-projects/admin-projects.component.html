@@ -10,7 +10,7 @@
   placeholder="Ingresar nombre de proyecto" [(ngModel)]="project_aux.name">
    <br>
 
-    <label for="exampleInputFile">Eleegir imagen de proyecto</label>
+    <label for="exampleInputFile">Elegir imagen de proyecto</label>
 
     <input [(ngModel)]="inputFile" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
       (change)="handleFileSelect($event)" #aa>
